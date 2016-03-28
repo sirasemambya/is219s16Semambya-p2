@@ -12,9 +12,9 @@ body {
 	margin-right: auto;
 	background-color: white;
 	border-radius: 2px;
-}	
+}
 
-#slideShow {	
+#slideShow {
 	position: relative;
 }
 
@@ -67,6 +67,12 @@ body {
 	padding: 0px 10px;
 	margin: 20px 0px;
 }
+
+var GalleryImage = {
+location: "",
+description: "",
+date: ""
+};
 
 /*Add CSS styles to rotate the element 90deg
 Make it animate nicely. You'll need CSS3 for this*/
