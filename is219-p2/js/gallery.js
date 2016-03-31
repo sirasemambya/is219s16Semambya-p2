@@ -80,7 +80,6 @@ window.addEventListener('load', function() {
 }, false);
 
 function GalleryImage() {
-  function GalleryImage() {
   this.location = "Location: ";
   this.description = "Description: ";
   this.date = "Date: ";
