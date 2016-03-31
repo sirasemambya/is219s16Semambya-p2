@@ -44,7 +44,27 @@ function swapPhoto() {
 var mCurrentIndex = 0;
 
 // XMLHttpRequest variable
+var mURL = "images.json";
 var mRequest = new XMLHttpRequest();
+mRequest.onreadystatechange = function() {
+// Do something interesting if file is opened successfully
+if (mRequest.readyState == 4 && mRequest.status == 200) {
+try {
+// Let’s try and see if we can parse JSON (see next slide)
+mJson = JSON.parse(mRequest.responseText);
+for (var i = 0; i < myArray.length; i++) {
+console.log(myArray); // Outputs “"Rat", "Dragon", "Monkey"
+}// LOOP THROUGH the mJSON array here and fill up the
+// mImages array with GalleryImage objects
+// Let’s print out the JSON; It will likely show as “obj”
+console.log(mJson);
+} catch(err) {
+console.log(err.message)
+}
+}
+};
+mRequest.open("GET",mURL, true);
+mRequest.send();
 
 // Array holding GalleryImage objects (see below).
 var mImages = [];
@@ -78,12 +98,11 @@ window.addEventListener('load', function() {
 	console.log('window loaded');
 
 }, false);
-
-function GalleryImage() {
-	//implement me as an object to hold the following data about an image:
-	this.location = "Location: ";//1. location where photo was taken
-	this.description = "Description: ";//2. description of photo
-	this.date = "Date: "; //3. the date when the photo was taken
-	var img1 = new Image(); // HTML5 Constructor
-  img1.src = 'image1.png';//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
+var myArray = [];
+myArray[].push(new GalleryImage(mJson));
+function GalleryImage(imgPath, imgLocation, description, date) {
+	this.imgPath = imgPath;//1. location where photo was taken
+	this.imgLocation = imgLocation;//2. description of photo
+	this.date = date; //3. the date when the photo was taken
+  this.description = description;//4. either a String (src URL) or an an HTMLImageObject (bitmap of the photo. https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement)
 }
