@@ -85,3 +85,4 @@ function GalleryImage() {
   this.description = "Description: ";
   this.date = "Date: ";
 }
+}
