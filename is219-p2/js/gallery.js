@@ -133,7 +133,7 @@ function GalleryImage(imgLocation, description, date, imgPath) {
 	//implement me as an object to hold the following data about an image:
 	//1. location where photo was taken
   this.imgLocation = imgLocation;
-	//2. description of photo
+  //2. description of photo
   this.description = description;
 	//3. the date when the photo was taken
   this.date = date;
